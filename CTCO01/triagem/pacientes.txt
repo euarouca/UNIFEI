@@ -1,0 +1,7 @@
+ANA     1
+BIA     3
+JOSE    1
+JOAO    2
+CARLOS  3
+ANTONIO 1
+MARIA   2

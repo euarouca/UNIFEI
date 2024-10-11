@@ -1,0 +1,16 @@
+<ESCOLA>
+	<Aluno>
+		<Nomes>
+			FULANO DE TAL
+		</Nomes>
+		<Curso>
+			Direito
+		</Curso>
+		<N1>
+			2.5
+		</N1>
+		<N2>
+			6.5
+		</N2>
+	</Aluno>
+</ESCOLA>
