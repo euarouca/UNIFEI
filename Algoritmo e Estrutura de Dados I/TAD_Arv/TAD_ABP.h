@@ -39,5 +39,12 @@ void percorreEmPreOrdem(noABP *novoNo);
 //retorna -1 se não encontrou
 int removeElemento(abp *arvore, int valor);
 
+//Calcula a altura de uma árvore
+int calculaAltura(noABP *no);
+
+//Verifica se uma árvore é cheia
+//Retorna 1 se for cheia
+//Retorna -1 se não for
+int verificaCheia(noABP *no);
 
 #endif //INC_6_ARVORE_TAD_ABP_H

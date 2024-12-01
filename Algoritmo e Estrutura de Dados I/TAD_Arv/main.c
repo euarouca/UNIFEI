@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "TAD_ABP.h"
-// teste
+
 int main() {
     FILE *arq;
     noABP *novoNo;
@@ -43,7 +43,12 @@ int main() {
         scanf("%d", &valor);
     }
 
-    percorreEmOrdem(retornaRaiz(arv));
+    // percorreEmOrdem(retornaRaiz(arv));
+    printf("\n");
+    printf("A altura da arvore: %d\n", calculaAltura(retornaRaiz(arv)));
+
+    printf("\n");
+    printf("A arvore e cheia: %d\n", verificaCheia(retornaRaiz(arv)));
 
     return 0;
 }

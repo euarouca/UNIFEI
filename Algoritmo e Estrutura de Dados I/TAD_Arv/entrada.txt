@@ -1,10 +1,3 @@
-20   Ana
-25   José
-10   Carol
-5   Maria
-12   Benedita
-11   João
-8   Luiza
-2   Lizandra
-6   Sophia
-23  Flor
+6   Ana
+3   Maria
+7   Benedita

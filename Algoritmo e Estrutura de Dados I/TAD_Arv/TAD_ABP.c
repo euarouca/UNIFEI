@@ -158,3 +158,27 @@ int removeElemento(abp *arvore, int valor){
         return 1;
     }
 }
+
+int calculaAltura(noABP *no){
+    if (no == NULL) return -1;
+
+    int altEsq = calculaAltura(no->sae);
+    int altDir = calculaAltura(no->sad);
+
+    if (altEsq > altDir)
+        return altEsq + 1;
+    else 
+        return altDir + 1;
+}
+
+int verificaCheia(noABP *no){
+    if (no == NULL) return -1;
+
+    int altEsq = calculaAltura(no->sae);
+    int altDir = calculaAltura(no->sad);
+
+    if (altEsq == altDir)
+        return 1;
+    else
+        return -1;
+}
