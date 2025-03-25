@@ -20,7 +20,7 @@ raiz não atende mais a propriedade de heap, o nó é comparado com os filhos pa
 */
 
 
-struct vetHeap
+struct vetHeap // heap tem tamanho, o local da última posição, e um vetor
 {
     int size;
     int tail;
@@ -31,24 +31,25 @@ heap *alocaHeap(int tam){
     heap *h = (heap*)malloc(sizeof(heap));
     if (!h) return NULL; // não foi possível alocar a heap
 
-    h->size = tam + 1;
-    h->tail = 1;
-    h->vet = (int*)malloc(tam * sizeof(int));
+    h->size = tam + 1; // aumenta o tamanha e +1 porque não é possível usar a posção 0.
+    h->tail = 1;  // a inserção começa na primeira posição.
+    h->vet = (int*)malloc(tam * sizeof(int)); // cria um vetor do tamanho que foi pré-específicado
     if(!h->vet) return NULL; // não foi possível alocar o vetor
-    return h;
+    return h; // retorna o vetor
 }
 
 void criaHeap(heap *h, char nomeArquivo[]){
-    FILE *arq;
+    FILE *arq; // Cria uma váriavel para arquivo
 
-    arq = fopen(nomeArquivo, "r");
-    if(!arq) return;
-    int valor;
-    while(fscanf(arq, "%d", &valor) != EOF && h->tail < h->size){
-        h->vet[h->tail] = valor;
+    arq = fopen(nomeArquivo, "r"); // abre o arquivo 
+    if(!arq) return; // se não abriu o arquivo ele retorna
 
-        if(h->tail > 1){
-            int indAtual = h->tail; // ultimo adicionado
+    int valor; // uma váriavel temporária para amazenar o valor lido no arquivo
+while(fscanf(arq, "%d", &valor) != EOF && h->tail < h->size){ // ler a arquivo enquanto não chegar no final indicador de final e enquanto houver espaço no vetor
+        h->vet[h->tail] = valor; // inserir o valor lido na cauda do vetor
+
+        if(h->tail > 1){ // verifica se o elemento adicionado tem que trocar de posição
+            int indAtual = h->tail; // ultimo adicionado 
             int indPai = indAtual / 2; // pai do ultimo
 
             while (indPai >= 1 && h->vet[indPai] < h->vet[indAtual] ){ // nao for a raiz e o filho maior que o pai
@@ -79,13 +80,13 @@ void removeElemento(heap *h){
 
     int indAtual = 1;
     while(indAtual < h->tail){
-        int maior = indAtual;
-        int fEsq = indAtual * 2;
-        int fDir = indAtual * 2 + 1;
+        int maior = indAtual; // variavel aux
+        int fEsq = indAtual * 2; // filho esquerda
+        int fDir = indAtual * 2 + 1; // filho direita
 
         // filho esquerda
        if (fEsq < h->tail && h->vet[fEsq] > h->vet[maior])
-            maior = fEsq;
+            maior = fEsq; 
         // filho direita
         if (fDir < h->tail && h->vet[fDir] > h->vet[maior])
             maior = fDir;

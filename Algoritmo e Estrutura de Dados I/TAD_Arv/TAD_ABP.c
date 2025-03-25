@@ -46,7 +46,7 @@ void insere(abp *arvore, noABP *novoNo){
     noABP *aux = arvore->raiz;
     noABP *pai = NULL;
 
-    while (aux != NULL){
+    while (aux){
         pai = aux;
         // se for menor ele corre pra esquerda
         if (novoNo->valor < aux->valor)
@@ -65,17 +65,16 @@ void insere(abp *arvore, noABP *novoNo){
 
 char *buscaElemento(abp *arvore, int valor){
     noABP *aux = arvore->raiz;
-    while (valor != aux->valor && aux != NULL){
+    while (valor != aux->valor && aux){
         if (valor < aux->valor)
             aux = aux->sae;
         else    
             aux = aux->sad;
     }
-    if (valor == aux->valor)
-        return aux->nome;
+    if (!aux) // nao encontrou 
+        return "NULL";
 
-    // não encontrou o valor
-    return "NULL";
+    return aux->nome;
 }
 
 void percorreEmOrdem(noABP *novoNo){
