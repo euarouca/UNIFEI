@@ -37,6 +37,7 @@ def salvar_resultado(nome_dataset, linhas, colunas):
     '''
     Descrição:
        Recebe os dados gerais do dataset e salva em um arquivo txt.
+       Print os dados no prompt.
     
     Parâmetros:
         - nome_dataset(str): Nome do dataset.
@@ -45,7 +46,10 @@ def salvar_resultado(nome_dataset, linhas, colunas):
                 
         Retornos:
         - txt: Arquivo com infos do dataset.
-    '''    
+    '''
+    print(f'Dataset: {nome_dataset}.txt')
+    print(f'Quantidade de linhas: {linhas}')
+    print(f'Quantidade de colunas: {colunas}')
     with open('resultados.txt', 'a') as arquivo:
         arquivo.write(f'Dataset: {nome_dataset}.txt\n')
         arquivo.write(f'Quantidade de linhas: {linhas}\n')
