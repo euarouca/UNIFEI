@@ -6,7 +6,6 @@ void imprimeVetor(int *vet, int tam){
     for(int i = 0; i < tam; i++){
         printf("%d ", vet[i]);
     }
-    free(vet);
 }
 
 

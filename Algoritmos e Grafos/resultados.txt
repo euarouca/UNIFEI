@@ -1,3 +1,0 @@
-Dataset: ponte.txt
-Quantidade de linhas: 4
-Quantidade de colunas: 4

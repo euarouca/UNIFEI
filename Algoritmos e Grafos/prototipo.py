@@ -1,5 +1,7 @@
 import os
 import numpy as np
+from matriz import*
+from lista import*
 
 def carrega_arquivo(nome_dataset):
     '''
@@ -54,10 +56,11 @@ def salvar_resultado(nome_dataset, linhas, colunas):
         arquivo.write(f'Dataset: {nome_dataset}.txt\n')
         arquivo.write(f'Quantidade de linhas: {linhas}\n')
         arquivo.write(f'Quantidade de colunas: {colunas}\n')   
-        
+
 
 if __name__ == '__main__':
     nome_arquivo = input('Nome do dataset: ')
     matriz = carrega_arquivo(nome_arquivo)
-    qtd_linhas, qtd_colunas = dimensao_matriz(matriz)    
-    salvar_resultado(nome_arquivo, qtd_linhas, qtd_colunas)
+    # qtd_linhas, qtd_colunas = dimensao_matriz(matriz)    
+    # salvar_resultado(nome_arquivo, qtd_linhas, qtd_colunas)
+    print(criaListaAdjacencias(matriz))
