@@ -42,42 +42,45 @@ void trataErro(int erro){
     }
 }
 
-tReturn* leArquivo(char nomeArquivo[]){
+tReturn* leArquivo(char nomeArquivo[]) {
     tReturn* ret = alocatReturn();
-    if (!ret)
+    if (ret == NULL)
         return NULL;
 
     FILE *fp = fopen(nomeArquivo, "r");
-    if (!fp) {
-        ret->erro = 1;
+    if (fp == NULL) {
+        ret->erro = 1; // Erro ao abrir o arquivo
         return ret;
     }
 
     int qtdElementos;
-    fscanf(fp, "%d\n", &qtdElementos);
+    // Lê o tamanho do vetor na primeira linha
+    if (fscanf(fp, "%d", &qtdElementos) != 1) {
+        ret->erro = 2; // Erro ao ler do arquivo
+        fclose(fp);
+        return ret;
+    }
 
     ret->vet = (int*)malloc(sizeof(int) * qtdElementos);
-    if (!ret->vet) {
-        ret->erro = 3;
+    if (ret->vet == NULL) {
+        ret->erro = 3; // Erro ao alocar memória
+        fclose(fp);
         return ret;
     }
 
     ret->tam = qtdElementos;
 
+    // Lê os elementos do vetor
     for (int i = 0; i < qtdElementos; i++) {
-        if(fscanf(fp, "%d", &ret->vet[i]) != 1) {
-            ret->erro = 2;
+        if (fscanf(fp, "%d", &ret->vet[i]) != 1) {
+            ret->erro = 2; // Erro ao ler do arquivo
+            break; // Interrompe  se encontrar um dado inválido
         }
     }
+
+    fclose(fp); // Fecha o arquivo para evitar vazamento de recursos
     return ret;
 }
-
-void imprime(int *vet, int tam){
-    for(int i=0; i<tam; i++)
-        printf("%d ", vet[i]);
-    printf("\n");
-}
-
 
 int bolha(int *vet, int tam){
     if (!vet || tam == 0)
@@ -86,7 +89,6 @@ int bolha(int *vet, int tam){
     for (int i = 0; i < tam; i++) {
         for (int j = 1; j < tam; j++){
             comp++;
-            imprime(vet, tam);
             if (vet[j - 1] > vet[j]){
                 temp = vet[j];
                 vet[j] = vet[j - 1];
@@ -98,7 +100,7 @@ int bolha(int *vet, int tam){
 }
 
 
-int bolhaInteligente(int *vet, int tam){
+int bolhaInteligente(int *vet, int tam){ // [3, 5, 1, 2, 4]
     if (!vet || tam == 0)
     return 0;
 
@@ -106,7 +108,6 @@ int bolhaInteligente(int *vet, int tam){
     for (int i = 0; i < tam && swap; i++) {
         swap = 0;
         for (int j = 1; j < tam - i; j++) {
-            imprime(vet, tam);
             comp++;
             if (vet[j - 1] > vet[j]) {
                 swap = 1;
@@ -123,8 +124,7 @@ void imprimeVet(int *vet, int tam){
     if (!vet || tam == 0)
         return;
 
-        for(int i=0; i<tam; i++) {
-            printf("%d ", vet[i]);
-        }
-        printf("\n");        
+    for(int i=0; i<tam; i++) 
+        printf("%d\n", vet[i]); 
+    
 }

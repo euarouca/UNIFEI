@@ -37,7 +37,7 @@ int main() {
 
     totalElementos = verificaElementos(mat, linhas, colunas);
 
-    printf("O total de elementos entre 15 e 20 e: %d", totalElementos);
+    printf("O total de elementos entre 15 e 20 e: %d\n", totalElementos);
 
     desalocaMatriz(mat, linhas);
 

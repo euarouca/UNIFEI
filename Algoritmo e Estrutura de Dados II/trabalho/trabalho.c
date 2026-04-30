@@ -249,13 +249,13 @@ void timSort(int arr[], int n, long long int *comparacoes, long long int *trocas
     for (int i = 0; i < n; i += RUN)
         insertionSortTim(arr, i, fmin((i + RUN - 1), (n - 1)), comparacoes, trocas);
 
-    for (int size = RUN; size < n; size = 2 * size) {
-        for (int left = 0; left < n; left += 2 * size) {
-            int mid = left + size - 1;
-            int right = fmin((left + 2 * size - 1), (n - 1));
-            if (mid < right)
-                mergeTim(arr, left, mid, right, comparacoes, trocas);
+        for (int size = RUN; size < n; size = 2 * size) {
+            for (int left = 0; left < n; left += 2 * size) {
+                int mid = left + size - 1;
+                int right = fmin((left + 2 * size - 1), (n - 1));
+                if (mid < right)
+                    mergeTim(arr, left, mid, right, comparacoes, trocas);
+            }
         }
-    }
 }
 

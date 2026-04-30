@@ -59,8 +59,12 @@ def salvar_resultado(nome_dataset, linhas, colunas):
 
 
 if __name__ == '__main__':
-    nome_arquivo = input('Nome do dataset: ')
-    matriz = carrega_arquivo(nome_arquivo)
-    # qtd_linhas, qtd_colunas = dimensao_matriz(matriz)    
+    # nome_arquivo = input('Nome do dataset: ')
+    # matriz = carrega_arquivo(nome_arquivo)
+    # qtd_linhas, qtd_colunas = dimensao_matriz(lista)    
     # salvar_resultado(nome_arquivo, qtd_linhas, qtd_colunas)
-    print(criaListaAdjacencias(matriz))
+    lista = [[0, 1, 0, 0], 
+             [1, 0, 1, 1], 
+             [0, 1, 0, 1], 
+             [0, 1, 1, 0]]
+    

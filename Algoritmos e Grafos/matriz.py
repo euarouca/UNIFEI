@@ -41,7 +41,7 @@ def removeVertice(matriz, v):
         matriz[i][v] = -1
         matriz[v][i] = -1
         
-    return print(np.array(matriz))
+    return np.array(matriz)
 
 def tipoGrafo(matriz):
     lacos = np.any(np.diagonal(matriz) != 0)  # Verifica se tem laço
@@ -74,3 +74,13 @@ def calcDensidade(matriz):
     densidade = arestas / (vertices * (vertices - 1))
     
     return densidade
+
+if __name__ == "__main__":
+    mat = [[0, 1, 0, 0], 
+           [1, 0, 1, 1],
+           [0, 1, 0, 1], 
+           [0, 1, 1, 0]]
+    
+    removeVertice([[0, 1, 0, 0], [1, 0, 1, 1], [0, 1, 0, 1], [0, 1, 1, 0]], 2)
+
+

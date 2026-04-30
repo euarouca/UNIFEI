@@ -1,0 +1,28 @@
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Compilados Windows
+*.exe
+*.obj
+*.o
+
+# Compilados Linux (sem extensão — saída de compilação C)
+**/saida
+**/output
+**/teste
+**/programa_*
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+.venv/
+
+# IDEs e editores
+.vscode/
+.idea/
+*.swp
+*.swo

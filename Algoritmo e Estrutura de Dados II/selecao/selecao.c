@@ -6,13 +6,12 @@
 
 int geraAleatorios(char *nomeArquivo, int qtd, int semente) {
     FILE *file = fopen(nomeArquivo, "w");
-    if (file == NULL) {
+    if (file == NULL)
         return 1;
-    }
     
     srand(semente);
     for (int i = 0; i < qtd; i++) {
-        int num = rand() % 1001; 
+        int num = rand() % 1000; 
         fprintf(file, "%d\n", num);
     }
     
@@ -22,9 +21,8 @@ int geraAleatorios(char *nomeArquivo, int qtd, int semente) {
 
 int* leArquivo(char *nomeArquivo, int qtd) {
     FILE *file = fopen(nomeArquivo, "r");
-    if (file == NULL) {
+    if (file == NULL) 
         return NULL;
-    }
     
     int *vet = (int*)malloc(qtd * sizeof(int));
     if (vet == NULL) {
@@ -73,7 +71,7 @@ void insercao(int *vet, int tam){
 }
 
 void buscaBinaria(int *vet, int inicio, int fim, int valor, int *res) {
-    res[1]++; // Increment call count
+    res[1]++; 
     
     if (inicio > fim) {
         res[0] = 0;
@@ -96,5 +94,5 @@ void imprimeVet(int *vet, int tam) {
     for (int i = 0; i < tam; i++) {
         printf("%d ", vet[i]);
     }
-    printf("\n\n");
+    printf("\n");
 }
