@@ -21,8 +21,12 @@ __pycache__/
 .env
 .venv/
 
+# PDFs grandes (excedem limite do GitHub)
+Livros/
+
 # IDEs e editores
 .vscode/
 .idea/
 *.swp
 *.swo
+Livros/
